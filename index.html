@@ -4,97 +4,141 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Religion: Simply Stupid</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   /* Import fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans&family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap');
+
+  /* CSS Variables for consistent theming */
+  :root {
+    --hindu: #FF8C42;
+    --islam: #2E8B57;
+    --christianity: #4682B4;
+    --judaism: #DAA520;
+    --buddhism: #9370DB;
+    --jainism: #F4A460;
+    --background: #f0f2f5;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --text-primary: #2D3748;
+    --text-secondary: #4A5568;
+    --text-muted: #718096;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s ease;
+  }
 
   /* Reset & base */
   *, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
+  
   body {
-    margin: 0; padding: 0;
-    font-family: 'Montserrat', 'Roboto', 'Open Sans', sans-serif;
-    background-color: #FFFFFF;
-    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
     overflow-x: hidden;
     scroll-behavior: smooth;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 2rem;
   }
-  img {
-    max-width: 100%;
-    border-radius: 10px;
-    display: block;
+  
+  h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
   }
-  a, button {
-    font-family: inherit;
-  }
-
+  
   /* Container & layout */
   .container {
-    max-width: 1080px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 1rem 3rem 1rem;
-    text-align: center;
+    padding: 0 2rem;
   }
 
   main {
-    padding-bottom: 5rem;
+    padding: 2rem 0;
   }
 
   /* Header */
   header {
-    padding: 2.4rem 1rem 2.6rem 1rem;
-    background: linear-gradient(90deg, #FF3B30, #4CD964, #3498DB);
-    color: #fff;
-    text-shadow: 0 0 4px rgba(0,0,0,0.5);
-    position: sticky;
-    top: 0;
-    z-index: 110;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    padding: 2.5rem 1rem;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
   }
+  
   header h1 {
-    font-size: 3.1rem;
-    margin: 0 0 0.3rem 0;
-    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
     letter-spacing: 0.05em;
   }
+  
   .tagline {
     font-style: italic;
-    font-size: 1.6rem;
-    opacity: 0;
-    animation: fadeInSlide 2s ease forwards;
-    user-select: none;
-  }
-  @keyframes fadeInSlide {
-    from { opacity: 0; transform: translateY(18px);}
-    to { opacity: 0.85; transform: translateY(0);}
+    font-size: 1.5rem;
+    opacity: 0.9;
+    font-weight: 500;
   }
 
   /* Sections */
   section {
-    margin: 3rem 0 4rem 0;
+    margin: 3rem 0;
+    padding: 2.5rem;
+    border-radius: 16px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
   }
+  
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  
   h2 {
-    font-weight: 800;
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
-    color: #111;
-    letter-spacing: 0.04em;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.8rem;
   }
-  h3, h4 {
-    font-weight: 700;
-    margin: 1.6rem 0 0.6rem 0;
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--hindu), var(--islam), var(--christianity));
+    border-radius: 2px;
   }
+  
+  h3 {
+    font-size: 1.6rem;
+    margin: 2rem 0 1rem 0;
+    color: var(--text-primary);
+    text-align: center;
+  }
+  
   p {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    max-width: 720px;
-    margin: 0 auto 1.3em auto;
-    padding: 0 1rem;
-    color: #222;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 auto 1.5rem auto;
+    color: var(--text-secondary);
+    max-width: 700px;
+    text-align: center;
   }
+  
   strong {
-    font-weight: 700;
+    color: var(--text-primary);
+    font-weight: 600;
   }
 
   /* Principles container */
@@ -102,442 +146,668 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2.2rem;
-    margin-top: 1rem;
-    padding: 0 1rem;
+    gap: 1.5rem;
+    margin: 2rem 0;
   }
+  
   .principle {
-    flex: 1 1 180px;
-    background-color: #3498DB;
-    color: #fff;
-    padding: 1.8rem 1.3rem;
-    border-radius: 14px;
-    font-weight: 700;
-    font-size: 1.15rem;
-    box-shadow: 0 7px 16px rgba(52, 152, 219, 0.45);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    user-select: none;
+    flex: 1 1 220px;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: var(--transition);
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
   }
-  .principle:hover, .principle:focus-visible {
-    background-color: #4CD964;
-    cursor: default;
-    transform: translateY(-6px);
-    outline: none;
-  }
-
-  /* Self Freedom texts */
-  section[aria-label="Campaign Philosophy and Principles"] p {
-    max-width: 680px;
+  
+  .principle:hover {
+    transform: translateY(-8px);
+    box-shadow: 8px 8px 20px #d9d9d9, -8px -8px 20px #ffffff;
   }
 
   /* Audience Grid */
   .audience {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(160px, 1fr));
-    gap: 1.3rem;
-    margin: 2rem 1rem 3rem 1rem;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    margin: 2rem 0;
   }
+  
   .audience-item {
-    background: #FF3B30;
-    color: white;
-    font-weight: 800;
-    padding: 1rem 1.3rem;
-    border-radius: 6px;
-    box-shadow: 0 4px 9px rgb(255 59 48 / 0.45);
-    transition: background-color 0.3s ease;
-    user-select: none;
-    font-size: 1.1rem;
-    letter-spacing: 0.04em;
+    padding: 1.2rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition);
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
   }
-  .audience-item:hover, .audience-item:focus-visible {
-    background-color: #e0322a;
-    outline: none;
-    cursor: pointer;
+  
+  .audience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 15px #d9d9d9, -8px -8px 15px #ffffff;
+  }
+
+  /* Self Freedom items */
+  .freedom-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .freedom-item {
+    flex: 1 1 250px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+    text-align: center;
+  }
+  
+  .freedom-item h4 {
+    color: var(--hindu);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+  }
+  
+  .freedom-item p {
+    margin: 0;
+    text-align: left;
   }
 
   /* Symbols container */
   .symbols-container {
-    margin: 3rem 1rem 1rem 1rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2.6rem;
+    gap: 2rem;
+    margin: 2.5rem 0 1.5rem 0;
   }
+  
   .symbol {
-    background: #e7e7e7;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    width: 90px;
-    height: 90px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.13);
-    font-size: 2.9rem;
-    color: #444;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-    user-select: none;
-    outline-offset: 3px;
+    font-size: 2.8rem;
+    transition: var(--transition);
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
   }
-  .symbol:hover, .symbol:focus-visible {
-    transform: scale(1.25);
-    box-shadow: 0 7px 22px rgba(0,0,0,0.3);
-    cursor: default;
-    outline: none;
+  
+  /* Religion-specific colors for symbols */
+  .symbol[data-religion="hindu"] {
+    color: var(--hindu);
+    border: 2px solid var(--hindu);
   }
+  
+  .symbol[data-religion="islam"] {
+    color: var(--islam);
+    border: 2px solid var(--islam);
+  }
+  
+  .symbol[data-religion="christianity"] {
+    color: var(--christianity);
+    border: 2px solid var(--christianity);
+  }
+  
+  .symbol[data-religion="judaism"] {
+    color: var(--judaism);
+    border: 2px solid var(--judaism);
+  }
+  
+  .symbol[data-religion="buddhism"] {
+    color: var(--buddhism);
+    border: 2px solid var(--buddhism);
+  }
+  
+  .symbol:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 8px 8px 15px #d9d9d9, -8px -8px 15px #ffffff;
+  }
+  
   .symbol-label {
-    margin-top: 0.42rem;
-    font-size: 0.87rem;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: #222;
-    user-select: none;
+    color: var(--text-secondary);
   }
+  
   .symbols-caption {
-    margin-top: 1.2rem;
+    margin-top: 1.5rem;
     font-style: italic;
-    color: #666;
-    font-size: 1rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-  }
-  .symbols-headline {
-    font-weight: 900;
-    font-size: 1.7rem;
-    margin-top: 1rem;
-    color: #111;
-    user-select: none;
-  }
-  .symbols-subheadline {
-    font-weight: 500;
-    font-size: 1.15rem;
-    margin-top: 0.25rem;
-    color: #555;
-    user-select: none;
-  }
-
-  /* Visual Ads shared styles */
-  .visual-ad {
-    margin: 3rem auto 5rem auto;
-    padding: 2rem 2.5rem;
-    max-width: 900px;
-    border-radius: 14px;
-    background-color: #fbfbfb;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
-    border: 1px solid #ddd;
     text-align: center;
   }
-  .ad-title {
-    font-weight: 900;
-    color: #FF3B30;
-    font-size: 2.1rem;
-    margin-bottom: 0.3rem;
-    user-select: none;
+
+  /* Visual Ads */
+  .visual-ad {
+    margin: 4rem auto;
+    padding: 2.5rem;
+    border-radius: 16px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
   }
+  
+  .visual-ad:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  
+  .ad-title {
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+  
   .ad-theme {
     font-style: italic;
-    color: #6f6f6f;
-    margin-bottom: 1.4rem;
-    font-size: 1.05rem;
-  }
-  .ad-headline {
-    font-weight: 800;
-    color: #333;
-    font-size: 1.85rem;
-    margin: 1rem 0 0.6rem 0;
-  }
-  .ad-subheadline {
-    font-weight: 600;
-    color: #555;
-    font-size: 1.25rem;
-    margin-bottom: 1.8rem;
-  }
-  .ad-footer {
-    margin-top: 1.9rem;
-    font-weight: 700;
-    color: #4CD964;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    text-align: center;
     font-size: 1.1rem;
-    user-select: none;
   }
+  
+  .ad-headline {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin: 1.2rem 0 0.8rem 0;
+    text-align: center;
+  }
+  
+  .ad-subheadline {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .ad-footer {
+    margin-top: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
   .ad-call {
-    margin-top: 1.3rem;
-    font-weight: 800;
-    color: #FF3B30;
-    font-size: 1.35rem;
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.3rem;
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.2s ease;
-    user-select: none;
-    outline-offset: 4px;
+    transition: var(--transition);
+    text-align: center;
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
   }
-  .ad-call:hover, .ad-call:focus-visible {
-    color: #e0322a;
+  
+  .ad-call:hover {
     transform: scale(1.05);
-    outline: none;
-  }
-  .ad-call[style] {
-    font-style: italic;
-    color: #555 !important;
-    font-weight: 400 !important;
-    cursor: default !important;
-    transform: none !important;
+    box-shadow: 8px 8px 15px #d9d9d9, -8px -8px 15px #ffffff;
   }
 
-  /* Visual Ad 1: Error popup */
+  /* Error popup */
   .error-popup {
-    border: 1.7px solid #FF3B30;
-    background-color: #ffe6e6;
-    padding: 1.2rem 1.6rem;
-    border-radius: 12px;
+    padding: 1.8rem;
+    border-radius: 16px;
     width: 340px;
-    margin: 1.7rem auto 2rem auto;
-    box-shadow: 0 8px 16px rgba(255,59,48,0.3);
+    margin: 2rem auto;
     text-align: center;
-    color: #b30000;
-    font-weight: 700;
-    user-select: none;
+    font-weight: 600;
+    transition: var(--transition);
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
   }
+  
   .error-popup h4 {
     font-size: 1.4rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
   }
+  
   .error-popup p {
     font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 1.4rem;
-    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
   }
+  
   .error-popup button {
-    background: #FF3B30;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
     border: none;
-    color: white;
-    font-weight: 700;
-    margin: 0 0.6rem;
-    padding: 0.5rem 1.25rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0 0.5rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.26s ease;
-    font-family: inherit;
-    user-select: none;
+    transition: var(--transition);
+    box-shadow: 3px 3px 6px #d9d9d9, -3px -3px 6px #ffffff;
   }
-  .error-popup button:hover, .error-popup button:focus-visible {
-    background-color: #e0322a;
-    outline: none;
+  
+  .error-popup button:hover {
+    transform: translateY(-3px);
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
   }
 
   /* Progress bar */
   .progress-bar-container {
-    background-color: #ddd;
-    border-radius: 18px;
+    background: #eef2f7;
+    border-radius: 20px;
     overflow: hidden;
     width: 340px;
-    height: 24px;
-    margin: 0.4rem auto 1.1rem auto;
-    box-shadow: inset 0 2px 5px rgba(255,255,255,0.5);
+    height: 26px;
+    margin: 0.8rem auto 1.2rem auto;
+    box-shadow: inset 3px 3px 6px #d9d9d9, inset -3px -3px 6px #ffffff;
   }
+  
   .progress-bar-fill {
     height: 100%;
-    background-color: #FF3B30;
+    background: linear-gradient(90deg, var(--hindu), var(--islam), var(--christianity));
     width: 0%;
-    transition: width 0.5s ease;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    border-radius: 20px;
   }
+  
   .progress-label {
-    font-size: 0.9rem;
-    color: #555;
-    font-weight: 700;
-    margin-bottom: 0.7rem;
-    user-select: none;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    text-align: center;
   }
+  
   small {
     display: block;
-    font-size: 0.88rem;
-    color: #555;
-    margin-top: 0;
-    user-select: none;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.5rem;
   }
 
   /* Locked brain icon */
   .locked-brain {
-    font-size: 6.4rem;
-    margin: 1.3rem 0;
-    color: #FF3B30;
-    text-shadow: 0 0 12px rgba(255,59,48,0.7);
-    user-select: none;
+    font-size: 6rem;
+    margin: 1.5rem 0;
+    color: var(--text-primary);
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
   }
 
-  /* Visual Ad 2: split images */
+  /* Split images */
   .split-image-holder {
     display: flex;
     justify-content: center;
-    gap: 1.6rem;
+    gap: 2rem;
     flex-wrap: wrap;
-    margin: 1.5rem 0 3rem 0;
+    margin: 2rem 0 3rem 0;
   }
+  
   .split-image {
-    flex: 1 1 48%;
-    border-radius: 12px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+    flex: 1 1 45%;
+    border-radius: 16px;
     overflow: hidden;
     background-size: cover;
-    background-position: center center;
-    height: 180px;
+    background-position: center;
+    height: 220px;
     position: relative;
     color: white;
     display: flex;
     align-items: flex-end;
-    padding: 0.8rem 1.1rem;
-    font-weight: 700;
-    font-size: 1.15rem;
-    text-shadow: 0 0 8px rgba(0,0,0,0.85);
-    user-select: none;
-    transition: transform 0.4s ease;
-  }
-  .split-image:hover, .split-image:focus-visible {
-    transform: scale(1.03);
-    outline: none;
-  }
-
-  /* Central text in visual ad 2 */
-  .central-text {
-    margin-top: 1.8rem;
-  }
-  .central-text-main {
-    font-size: 2.3rem;
-    font-weight: 700;
-    color: #FF3B30;
-    user-select: none;
-  }
-  .central-text-sub {
-    font-size: 1.25rem;
-    color: #555;
+    padding: 1.2rem;
     font-weight: 600;
-    margin-top: 0.4rem;
-    user-select: none;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    transition: var(--transition);
+    box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff;
+  }
+  
+  .split-image:hover {
+    transform: scale(1.05);
+    box-shadow: 8px 8px 20px #d9d9d9, -8px -8px 20px #ffffff;
+  }
+  
+  .split-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+    opacity: 0.8;
+    transition: var(--transition);
+  }
+  
+  .split-image:hover::before {
+    opacity: 0.6;
+  }
+  
+  .split-image span {
+    position: relative;
+    z-index: 1;
   }
 
-  /* Visual Ad 3: Myth Market */
+  /* Central text */
+  .central-text {
+    margin-top: 2rem;
+  }
+  
+  .central-text-main {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--hindu);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .central-text-sub {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 0.6rem;
+  }
+
+  /* Deity grid */
   .deity-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1.8rem;
     justify-items: center;
-    margin-top: 1.6rem;
+    margin-top: 2rem;
   }
+  
   .deity-item {
-    font-size: 3.8rem;
-    user-select: none;
-    transition: transform 0.3s ease;
+    font-size: 4rem;
+    transition: var(--transition);
     cursor: default;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  .deity-item:hover, .deity-item:focus-visible {
-    transform: scale(1.15);
-    outline: none;
+  
+  .deity-item:hover {
+    transform: scale(1.2) rotate(5deg);
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   }
+  
   .caption {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-style: italic;
-    color: #777;
-    font-weight: 700;
+    color: var(--text-muted);
+    font-weight: 600;
     font-size: 1.05rem;
     max-width: 670px;
     margin-left: auto;
     margin-right: auto;
-    user-select: none;
+    text-align: center;
   }
 
-  /* Myth Market checkboxes */
+  /* Checkboxes */
   .checkboxes {
-    margin-top: 1.6rem;
-    font-weight: 700;
+    margin-top: 2rem;
+    font-weight: 600;
     display: flex;
     justify-content: center;
-    gap: 1.6rem;
-    color: #444;
-    user-select: none;
+    gap: 1.5rem;
+    color: var(--text-secondary);
   }
+  
   .checkboxes label {
-    border: 1.8px solid #ddd;
-    padding: 0.4rem 0.85rem;
-    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    transition: var(--transition);
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 3px 3px 6px #d9d9d9, -3px -3px 6px #ffffff;
   }
+  
   .checkboxes label.checked {
-    background-color: #FF3B30;
-    color: white;
-    border-color: #FF3B30;
-    pointer-events: none;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    color: var(--text-primary);
+    box-shadow: inset 3px 3px 6px #d9d9d9, inset -3px -3px 6px #ffffff;
+    transform: translateY(2px);
   }
-  .checkboxes label:hover:not(.checked),
-  .checkboxes label:focus-visible:not(.checked) {
-    border-color: #FF3B30;
-    color: #FF3B30;
-    outline: none;
+  
+  .checkboxes label:hover:not(.checked) {
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
   }
 
-  /* Footer styles */
+  /* Footer */
   footer {
     padding: 3rem 1rem;
-    background-color: #000000;
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+    color: white;
     text-align: center;
     font-style: italic;
-    font-weight: 700;
-    font-size: 1.18rem;
-    user-select: none;
-    letter-spacing: 0.04em;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-top: 4rem;
   }
+  
   footer p {
-    margin: 0.2rem 0;
+    margin: 0.5rem 0;
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
+    color: white;
+  }
+  
+  footer p:first-child {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Back to top button */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    border: none;
+  }
+  
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .back-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 
   /* Responsive */
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+    
     header h1 {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
     }
+    
     .tagline {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
+    
+    section {
+      padding: 2rem 1.5rem;
+      margin: 2.5rem 0;
+    }
+    
     h2 {
-      font-size: 1.7rem;
+      font-size: 1.9rem;
     }
+    
     h3 {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
+    
     .principles {
       flex-direction: column;
       gap: 1.2rem;
     }
+    
     .principle {
       flex: 1 1 auto;
       font-size: 1rem;
-      padding: 1.15rem 1rem;
+      padding: 1.5rem 1rem;
     }
+    
     .audience {
-      grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
     }
+    
+    .freedom-items {
+      flex-direction: column;
+    }
+    
     .split-image-holder {
       flex-direction: column;
-      gap: 1.2rem;
-      margin-bottom: 1rem;
+      gap: 1.5rem;
     }
+    
     .split-image {
-      height: 140px;
-      font-size: 1rem;
+      height: 180px;
+      font-size: 1.1rem;
     }
+    
     .visual-ad {
-      padding: 1.6rem 1.8rem;
-      margin: 2.8rem 1rem 4rem 1rem;
+      padding: 2rem 1.5rem;
+      margin: 3rem 0;
     }
+    
     .deity-grid {
-      gap: 1.3rem;
+      gap: 1.5rem;
     }
+    
     .deity-item {
-      font-size: 3rem;
+      font-size: 3.2rem;
+    }
+    
+    .error-popup {
+      width: 300px;
+      padding: 1.5rem;
+    }
+    
+    .progress-bar-container {
+      width: 300px;
+    }
+    
+    .checkboxes {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.9rem;
+    }
+    
+    .tagline {
+      font-size: 1.1rem;
+    }
+    
+    h2 {
+      font-size: 1.7rem;
+    }
+    
+    h3 {
+      font-size: 1.4rem;
+    }
+    
+    .visual-ad {
+      padding: 1.8rem 1.2rem;
+    }
+    
+    .ad-title {
+      font-size: 1.6rem;
+    }
+    
+    .ad-headline {
+      font-size: 1.5rem;
+    }
+    
+    .error-popup {
+      width: 280px;
+    }
+    
+    .progress-bar-container {
+      width: 280px;
+    }
+    
+    .symbol {
+      width: 80px;
+      height: 80px;
+      font-size: 2.2rem;
+    }
+    
+    .central-text-main {
+      font-size: 2rem;
+    }
+    
+    .central-text-sub {
+      font-size: 1.1rem;
     }
   }
 </style>
@@ -547,12 +817,11 @@
 <header>
   <div class="container">
     <h1>Religion: Simply Stupid</h1>
-    <div class="tagline" aria-live="polite" aria-atomic="true">Where logic goes to die.</div>
+    <div class="tagline">Where logic goes to die.</div>
   </div>
 </header>
 
-<main class="container" role="main">
-
+<main class="container">
   <section aria-label="Campaign Objective">
     <h2>Our Objective</h2>
     <p>Expose the fictional, illogical, and regressive nature of religion while promoting reason, freedom, and rational morality.</p>
@@ -561,130 +830,152 @@
 
   <section aria-label="Campaign Philosophy and Principles">
     <h2>Philosophy and Principles</h2>
-    <div class="principles" role="list">
-      <div class="principle" role="listitem" tabindex="0">Ethics without gods</div>
-      <div class="principle" role="listitem" tabindex="0">Morality without mythology</div>
-      <div class="principle" role="listitem" tabindex="0">Freedom without fear</div>
-      <div class="principle" role="listitem" tabindex="0">Pleasure without guilt</div>
+    <div class="principles">
+      <div class="principle">Ethics without gods</div>
+      <div class="principle">Morality without mythology</div>
+      <div class="principle">Freedom without fear</div>
+      <div class="principle">Pleasure without guilt</div>
     </div>
 
     <h3>Self-Freedom</h3>
-    <p><strong>Sex:</strong> Sex is not a sin. It's a natural, consensual act of self-expression.</p>
-    <p><strong>Self-Satisfaction:</strong> Seeking pleasure or self-fulfillment is not immoral if no one is harmed.</p>
-    <p><strong>Self-Gain:</strong> Personal growth, wealth, or gain is not a crime, despite religious claims.</p>
-    <p><strong>Indulgence:</strong> Indulgence in joy, luxury, or rest is not shameful — it's human.</p>
+    <div class="freedom-items">
+      <div class="freedom-item">
+        <h4>Sex</h4>
+        <p>Sex is not a sin. It's a natural, consensual act of self-expression.</p>
+      </div>
+      <div class="freedom-item">
+        <h4>Self-Satisfaction</h4>
+        <p>Seeking pleasure or self-fulfillment is not immoral if no one is harmed.</p>
+      </div>
+      <div class="freedom-item">
+        <h4>Self-Gain</h4>
+        <p>Personal growth, wealth, or gain is not a crime, despite religious claims.</p>
+      </div>
+      <div class="freedom-item">
+        <h4>Indulgence</h4>
+        <p>Indulgence in joy, luxury, or rest is not shameful — it's human.</p>
+      </div>
+    </div>
   </section>
 
   <section aria-label="Target Audience">
     <h2>Who We Speak To</h2>
-    <div class="audience" role="list">
-      <div class="audience-item" role="listitem" tabindex="0">Agnostics</div>
-      <div class="audience-item" role="listitem" tabindex="0">Atheists</div>
-      <div class="audience-item" role="listitem" tabindex="0">Free thinkers</div>
-      <div class="audience-item" role="listitem" tabindex="0">Ex-religious individuals</div>
-      <div class="audience-item" role="listitem" tabindex="0">Secular humanists</div>
-      <div class="audience-item" role="listitem" tabindex="0">LGBTQ+ people</div>
-      <div class="audience-item" role="listitem" tabindex="0">Feminists</div>
-      <div class="audience-item" role="listitem" tabindex="0">Rationalists</div>
+    <div class="audience">
+      <div class="audience-item">Agnostics</div>
+      <div class="audience-item">Atheists</div>
+      <div class="audience-item">Free thinkers</div>
+      <div class="audience-item">Ex-religious individuals</div>
+      <div class="audience-item">Secular humanists</div>
+      <div class="audience-item">LGBTQ+ people</div>
+      <div class="audience-item">Feminists</div>
+      <div class="audience-item">Rationalists</div>
     </div>
   </section>
 
   <section aria-label="Religious Symbols">
-    <h2 class="symbols-headline">Gods Come in Many Symbols. Fiction Comes in Many Forms.</h2>
-    <p class="symbols-subheadline">One myth with 100 names is still a myth.</p>
-    <div class="symbols-container" role="list" aria-label="List of religious symbols with their meanings">
-      <div class="symbol" role="listitem" tabindex="0" aria-label="Hinduism symbol: Primordial sound; universal vibration">ૐ
+    <h2>Gods Come in Many Symbols. Fiction Comes in Many Forms.</h2>
+    <p>One myth with 100 names is still a myth.</p>
+    <div class="symbols-container">
+      <div class="symbol" data-religion="hindu">
+        ૐ
         <div class="symbol-label">Hinduism</div>
       </div>
-      <div class="symbol" role="listitem" tabindex="0" aria-label="Islam symbol: Guidance and divine light">☪︎
+      <div class="symbol" data-religion="islam">
+        ☪︎
         <div class="symbol-label">Islam</div>
       </div>
-      <div class="symbol" role="listitem" tabindex="0" aria-label="Christianity symbol: Sacrifice, resurrection, and sin forgiveness">♰
+      <div class="symbol" data-religion="christianity">
+        ♰
         <div class="symbol-label">Christianity</div>
       </div>
-      <div class="symbol" role="listitem" tabindex="0" aria-label="Judaism symbol: Divine protection and identity">✡
+      <div class="symbol" data-religion="judaism">
+        ✡
         <div class="symbol-label">Judaism</div>
       </div>
-      <div class="symbol" role="listitem" tabindex="0" aria-label="Hinduism, Buddhism, Jainism symbol: Auspiciousness, energy, and balance">卐
-        <div class="symbol-label">Hinduism, Buddhism, Jainism</div>
+      <div class="symbol" data-religion="buddhism">
+        卐
+        <div class="symbol-label">Buddhism</div>
       </div>
     </div>
     <p class="symbols-caption">Every symbol claims absolute truth. All contradict. All lack proof.</p>
   </section>
 
   <!-- Visual Ad 1: The Forbidden Update -->
-  <section class="visual-ad" aria-label="The Forbidden Update Visual Ad" tabindex="0">
+  <section class="visual-ad" aria-label="The Forbidden Update Visual Ad">
     <h3 class="ad-title">The Forbidden Update</h3>
     <p class="ad-theme">Religions block evolution and reason to maintain control.</p>
     <h4 class="ad-headline">Religion: Simply Stupid.</h4>
     <p class="ad-subheadline">Stuck in the Bronze Age. Still pretending it works.</p>
-    <div class="error-popup" role="alertdialog" aria-labelledby="error-title" aria-describedby="error-message">
-      <h4 id="error-title">Update Blocked</h4>
-      <p id="error-message">Faith 1.0 cannot install Reason 2.5. Please uninstall Myth first.</p>
+    <div class="error-popup">
+      <h4>Update Blocked</h4>
+      <p>Faith 1.0 cannot install Reason 2.5. Please uninstall Myth first.</p>
       <div>
-        <button type="button" aria-label="Ignore update" tabindex="0">Ignore</button>
-        <button type="button" aria-label="Confess update" tabindex="0">Confess</button>
-        <button type="button" aria-label="Feel guilty" tabindex="0">Feel Guilty</button>
+        <button type="button">Ignore</button>
+        <button type="button">Confess</button>
+        <button type="button">Feel Guilty</button>
       </div>
     </div>
-    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Moral Update Progress Bar">
+    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
       <div class="progress-label">Moral Update</div>
       <div class="progress-bar-container">
         <div class="progress-bar-fill" id="moral-progress"></div>
       </div>
       <small>Blocked by Doctrine</small>
     </div>
-    <div class="locked-brain" aria-label="Locked brain icon representing mind restricted by faith" tabindex="0" aria-describedby="locked-brain-desc">🔍</div>
-    <p id="locked-brain-desc" class="ad-footer">You don’t need magic to be moral.</p>
-    <p class="ad-call" tabindex="0" role="button" aria-pressed="false" aria-label="Call to action: Question. Think. Live Free.">Question. Think. Live Free.</p>
-    <p class="ad-call" style="font-style: italic; color: #555; font-weight: 400; cursor: default;" aria-hidden="true">We target systems, not individuals. If freedom offends your beliefs, examine your beliefs.</p>
+    <div class="locked-brain">🔍</div>
+    <p class="ad-footer">You don't need magic to be moral.</p>
+    <p class="ad-call">Question. Think. Live Free.</p>
+    <p class="ad-call" style="font-style: italic; color: var(--text-muted); font-weight: 400; cursor: default;">We target systems, not individuals. If freedom offends your beliefs, examine your beliefs.</p>
   </section>
 
   <!-- Visual Ad 2: Forbidden Pleasures -->
-  <section class="visual-ad" aria-label="Forbidden Pleasures Visual Ad" tabindex="0">
+  <section class="visual-ad" aria-label="Forbidden Pleasures Visual Ad">
     <h3 class="ad-title">Forbidden Pleasures</h3>
     <p class="ad-theme">Religions demonize natural pleasure to create guilt-based control.</p>
     <h4 class="ad-headline">Pleasure is not a sin.</h4>
     <p class="ad-subheadline">Unless your god hates consent.</p>
     <div class="split-image-holder">
-      <div class="split-image" tabindex="0" aria-label="Two lovers in bed - Reality: Joy, Love, Consent." style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">REALITY: Joy. Love. Consent.</div>
-      <div class="split-image" tabindex="0" aria-label="Cleric pointing in judgment - Dogma: Shame! Sin! Hell!" style="background-image: url('https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=600&q=80');">DOGMA: ‘Shame! Sin! Hell!’</div>
+      <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">
+        <span>REALITY: Joy. Love. Consent.</span>
+      </div>
+      <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=600&q=80');">
+        <span>DOGMA: 'Shame! Sin! Hell!'</span>
+      </div>
     </div>
     <div class="central-text">
-      <div class="central-text-main" tabindex="0">Sex ≠ Sin</div>
-      <div class="central-text-sub" tabindex="0">Consent is not immoral. Pleasure is not evil.</div>
+      <div class="central-text-main">Sex ≠ Sin</div>
+      <div class="central-text-sub">Consent is not immoral. Pleasure is not evil.</div>
     </div>
-    <p class="ad-footer" tabindex="0">You own your body. Not your priest.</p>
-    <p class="ad-call" tabindex="0" role="button" aria-pressed="false" aria-label="Call to action: Reclaim pleasure. Reject guilt.">Reclaim pleasure. Reject guilt.</p>
+    <p class="ad-footer">You own your body. Not your priest.</p>
+    <p class="ad-call">Reclaim pleasure. Reject guilt.</p>
   </section>
 
   <!-- Visual Ad 3: Myth Market -->
-  <section class="visual-ad" aria-label="Myth Market Visual Ad" tabindex="0">
+  <section class="visual-ad" aria-label="Myth Market Visual Ad">
     <h3 class="ad-title">Myth Market</h3>
     <p class="ad-theme">Religions are brands for myths.</p>
     <h4 class="ad-headline">Choose Your Savior™</h4>
     <p class="ad-subheadline">Zeus, Krishna, Allah, Thor, Jesus, FSM — All fictional. All worshiped.</p>
 
-    <div class="deity-grid" role="list" aria-label="Grid of famous deity symbols">
-      <div class="deity-item" role="listitem" tabindex="0" aria-label="Zeus symbol">⚡</div>
-      <div class="deity-item" role="listitem" tabindex="0" aria-label="Jesus symbol">✝</div>
-      <div class="deity-item" role="listitem" tabindex="0" aria-label="Krishna symbol">☸</div>
-      <div class="deity-item" role="listitem" tabindex="0" aria-label="Allah symbol">☪︎</div>
-      <div class="deity-item" role="listitem" tabindex="0" aria-label="Thor symbol">🔨</div>
-      <div class="deity-item" role="listitem" tabindex="0" aria-label="Flying Spaghetti Monster symbol">🍝</div>
+    <div class="deity-grid">
+      <div class="deity-item">⚡</div>
+      <div class="deity-item">✝</div>
+      <div class="deity-item">☸</div>
+      <div class="deity-item">☪︎</div>
+      <div class="deity-item">🔨</div>
+      <div class="deity-item">🍝</div>
     </div>
 
-    <div class="checkboxes" role="group" aria-label="Choose your god myth checkboxes" tabindex="0">
-      <label class="checked" aria-checked="true" tabindex="-1">☑ My God</label>
-      <label aria-checked="false" tabindex="-1">☐ Your Myth</label>
-      <label aria-checked="false" tabindex="-1">☐ Their Nonsense</label>
+    <div class="checkboxes">
+      <label class="checked">☑ My God</label>
+      <label>☐ Your Myth</label>
+      <label>☐ Their Nonsense</label>
     </div>
 
-    <p class="caption" tabindex="0">Truth doesn’t become truer just because it’s old.</p>
-    <p class="ad-footer" tabindex="0">They’re all made up. Some just have better marketing.</p>
-    <p class="ad-call" tabindex="0" role="button" aria-pressed="false" aria-label="Call to action: Believe in truth — not tradition.">Believe in truth — not tradition.</p>
+    <p class="caption">Truth doesn't become truer just because it's old.</p>
+    <p class="ad-footer">They're all made up. Some just have better marketing.</p>
+    <p class="ad-call">Believe in truth — not tradition.</p>
   </section>
-
 </main>
 
 <footer>
@@ -692,8 +983,10 @@
   <p>Let go of stories. Embrace reason.</p>
 </footer>
 
+<button class="back-to-top">↑</button>
+
 <script>
-  // Animate the progress bar fill for The Forbidden Update to simulate attempt, then stays blocked
+  // Animate the progress bar fill for The Forbidden Update
   window.addEventListener('load', () => {
     const progressBar = document.getElementById('moral-progress');
     if(!progressBar) return;
@@ -706,30 +999,74 @@
         progressBar.parentElement.setAttribute('aria-valuenow', progress);
         setTimeout(animate, 250);
       } else {
-        progressBar.style.width = '0%'; // reset blocked effect visually
+        progressBar.style.width = '0%';
         progressBar.parentElement.setAttribute('aria-valuenow', 0);
       }
     }
     animate();
   });
 
-  // Add interaction toggles for all ad-call elements with role 'button'
-  [...document.querySelectorAll('.ad-call[role="button"]')].forEach(el => {
-    el.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        togglePressed(el);
-      }
-    });
+  // Add interaction toggles for all ad-call elements
+  document.querySelectorAll('.ad-call').forEach(el => {
+    if (el.getAttribute('style')) return; // Skip the disclaimer text
+    
     el.addEventListener('click', () => {
-      togglePressed(el);
+      el.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        el.style.transform = '';
+      }, 150);
     });
   });
-  function togglePressed(el) {
-    const pressed = el.getAttribute('aria-pressed') === 'true';
-    el.setAttribute('aria-pressed', String(!pressed));
-    // Optional: Add a small visual effect or alert
-  }
+  
+  // Scroll animations for sections
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+  
+  // Back to top button functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+  
+  // Add click effects to buttons in error popup
+  document.querySelectorAll('.error-popup button').forEach(button => {
+    button.addEventListener('click', function() {
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    });
+  });
 </script>
 
 </body>
